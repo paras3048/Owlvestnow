@@ -3,6 +3,7 @@ import { X, Twitter, MessageCircle, Mail, Users, ChevronDown,Activity, ExternalL
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
@@ -164,6 +165,22 @@ function App() {
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/40 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
+            {/* Hamburger Button for Mobile */}
+<div className="flex md:hidden">
+  <button
+    aria-label="Open navigation menu"
+    onClick={() => setMobileNavOpen(!mobileNavOpen)}
+    className="p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+  >
+    {/* Use a Lucide icon, for example <ChevronDown /> or your preferred menu icon */}
+    <svg width={28} height={28} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+      <rect x="4" y="7" width="20" height="2" rx="1" />
+      <rect x="4" y="13" width="20" height="2" rx="1" />
+      <rect x="4" y="19" width="20" height="2" rx="1" />
+    </svg>
+  </button>
+</div>
+
             {/* Left - Logo */}
             <div className="flex-shrink-0">
               <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center">
@@ -202,6 +219,23 @@ function App() {
           </div>
         </div>
       </header>
+{/* Mobile Nav Drawer */}
+{mobileNavOpen && (
+  <div className="fixed top-16 left-0 w-full bg-black/90 z-50 flex flex-col items-center py-8 space-y-6 md:hidden">
+    {navItems.map((item) => (
+      <button
+        key={item.id}
+        onClick={() => {
+          scrollToSection(item.id);
+          setMobileNavOpen(false);
+        }}
+        className="text-white text-lg font-semibold py-2 w-full text-center hover:bg-white/10 transition"
+      >
+        {item.label}
+      </button>
+    ))}
+  </div>
+)}
 
 {/* Hero Section – Fixed for Single-Line Subline */}
 <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -218,7 +252,7 @@ function App() {
     <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent animate-gradient">
       O W L V E S T
     </h1>
- <p className="text-xl md:text-2xl font-semibold mx-auto whitespace-nowrap bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent animate-gradient tracking-wide shadow-md">
+ <p className="text-xl md:text-2xl md:whitespace-nowrap whitespace-normal font-semibold mx-auto whitespace-nowrap bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent animate-gradient tracking-wide shadow-md">
   Unlocking global startup investing through decentralized finance
 </p>
 
