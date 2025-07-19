@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom cursor styles for desktop only */
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+  
+  /* Ensure text selection still works */
+  ::selection {
+    background: rgba(116, 76, 249, 0.3);
+  }
+  
+  ::-moz-selection {
+    background: rgba(116, 76, 249, 0.3);
+  }
+}
+
+/* Keep default cursor on mobile/touch devices */
+@media (hover: none) or (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+}
