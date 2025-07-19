@@ -252,10 +252,9 @@ function App() {
     <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent animate-gradient">
       O W L V E S T
     </h1>
- <p className="text-xl md:text-2xl md:whitespace-nowrap whitespace-normal font-semibold mx-auto whitespace-nowrap bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent animate-gradient tracking-wide shadow-md">
+<p className="text-xl md:text-2xl font-semibold mx-auto md:whitespace-nowrap whitespace-normal bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent animate-gradient tracking-wide shadow-md">
   Unlocking global startup investing through decentralized finance
 </p>
-
   </div>
 </section>
 
